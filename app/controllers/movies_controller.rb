@@ -8,6 +8,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def director
+    @director_name = @movie.director
+  end
+
   def new
     @movie = Movie.new
   end

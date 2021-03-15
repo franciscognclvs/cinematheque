@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   # get 'movies/:id/edit', to: 'movies#edit'
   # patch 'movies/:id', to: 'movies#update'
   # delete 'movies/:id', to: 'movies#destroy'
-  resources :movies
+  resources :movies do
+    get 'director', on: :member
+  end
+
 end
