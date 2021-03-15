@@ -3,5 +3,6 @@ class Movie < ApplicationRecord
   # validates :year, presente: true
   # validates :synopsis, presense: true
   # validates :director, presence: true
-  validates :rating, inclusion: { in: 1..5 }
+  RATING = (1..5)
+  validates :rating, inclusion: { in: RATING }
 end
