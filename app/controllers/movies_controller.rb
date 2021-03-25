@@ -25,17 +25,23 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   def update
+    @movie = Movie.update(movie_params)
+    redirect_to movie_path(@movie)
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to movies_path
   end
 
   private
 
   def movie_params
-    params_require(:movie).permit(:title, :year, :synopsis, :director, :rating)
+    params.require(:movie).permit(:title, :year, :synopsis, :director, :rating)
   end
 end
